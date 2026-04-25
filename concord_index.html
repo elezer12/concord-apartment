@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+  ================================================================
+  CONCORD APARTMENTS — Main Website
+  Project: concordapartments.com / concord-apartment.com
+  Author: Web Development Team
+  Version: 2.0
+
+  FILE STRUCTURE:
+    index.html  — This file (all markup)
+    style.css   — All styles (1 external stylesheet)
+    script.js   — All JavaScript (1 external script)
+    images/     — Place all site images in this folder
+      hero-bg.jpg      (hero background — replace with actual Concord photo)
+      about-main.jpg   (about section main image)
+      about-accent.jpg (about section accent image)
+      prop-penthouse-ultra.jpg
+      prop-penthouse.jpg
+      prop-three-bed.jpg
+      prop-two-bed.jpg
+      prop-exterior.jpg
+      gallery-1.jpg through gallery-6.jpg
+
+  SOCIAL LINKS (update these if URLs change):
+    Facebook  : https://www.facebook.com/share/183f1A2bcu/
+    Instagram : https://www.instagram.com/concord_apartments
+    TikTok    : https://www.tiktok.com/@concordapartments
+    WhatsApp  : https://wa.me/256760120362
+    YouTube   : Update when channel is created
+  ================================================================
+-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ============================================================
+    SEO Meta Tags
+    Update the description and keywords before going live.
+  ============================================================ -->
+  <title>Concord Apartments — Luxury Residences in Nakasero Hill, Kampala</title>
+  <meta name="description" content="Concord Apartments offers luxury 2, 3, and 4-bedroom residences and penthouses on Nakasero Hill, Kampala. 360° city views, world-class amenities, and premium finishes. Enquire today.">
+  <meta name="keywords" content="Concord Apartments, Kampala apartments for sale, Nakasero Hill luxury apartments, penthouses Uganda, real estate Kampala">
+  <meta name="author" content="Concord Apartments">
+
+  <!-- ============================================================
+    Open Graph (controls how the site appears when shared
+    on Facebook, WhatsApp, LinkedIn, etc.)
+  ============================================================ -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://concordapartments.com/">
+  <meta property="og:title"       content="Concord Apartments — Nakasero Hill, Kampala">
+  <meta property="og:description" content="Luxury residences tailored to your highest standard. 360° city views, premium amenities, and prime location in the heart of Kampala.">
+  <meta property="og:image"       content="https://concordapartments.com/images/og-preview.jpg">
+
+  <!-- ============================================================
+    Favicon
+    Replace favicon.ico with the actual Concord logo file.
+  ============================================================ -->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+  <!-- ============================================================
+    Google Fonts
+    Playfair Display — editorial serif for headings
+    Jost             — clean geometric sans for body text
+  ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+  <!-- ============================================================
+    Main Stylesheet
+  ============================================================ -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ============================================================
+    WHATSAPP FLOATING BUTTON
+    Always visible — primary conversion channel for this market.
+    Update the phone number (+256760120362) if it changes.
+  ============================================================ -->
+  <a class="wa-float"
+     href="https://wa.me/256760120362"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Chat with us on WhatsApp">
+    <!-- WhatsApp SVG icon (inline for reliability — no CDN dependency) -->
+    <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.115 1.525 5.844L.057 23.882a.5.5 0 0 0 .61.633l6.195-1.624A11.937 11.937 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.887a9.897 9.897 0 0 1-5.03-1.372l-.36-.214-3.724.977.995-3.634-.235-.374A9.86 9.86 0 0 1 2.114 12C2.114 6.544 6.544 2.114 12 2.114S21.886 6.544 21.886 12 17.456 21.887 12 21.887z"/>
+    </svg>
+  </a>
+
+
+  <!-- ============================================================
+    MOBILE FULLSCREEN MENU OVERLAY
+    Hidden by default. Shown when .active is added via JS.
+  ============================================================ -->
+  <div id="mobile-menu" role="dialog" aria-label="Navigation menu" aria-modal="true">
+    <button id="close-menu" onclick="closeMobileMenu()" aria-label="Close menu">&#x2715;</button>
+    <a href="#about">About</a>
+    <a href="#properties">Properties</a>
+    <a href="#amenities">Amenities</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#location">Location</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+
+  <!-- ============================================================
+    NAVIGATION BAR
+    Fixed at top. Transparent over hero, dark background on scroll.
+  ============================================================ -->
+  <nav id="nav" role="navigation" aria-label="Main navigation">
+
+    <!-- Logo -->
+    <a href="#hero" class="nav-logo" aria-label="Concord Apartments — Home">
+      Concord <em>Apartments</em>
+    </a>
+
+    <!-- Desktop navigation links -->
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#properties">Properties</a></li>
+      <li><a href="#amenities">Amenities</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#location">Location</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <!-- Desktop CTA -->
+    <a href="#contact" class="nav-enquire">Enquire Now &rarr;</a>
+
+    <!-- Mobile hamburger button -->
+    <button class="hamburger" onclick="openMobileMenu()" aria-label="Open navigation menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </nav>
+
+
+  <!-- ============================================================
+    HERO SECTION
+    Full-viewport. Background image, dark overlay, particles,
+    main headline, CTA buttons, and key stats.
+
+    IMPORTANT: Replace the CSS background-image URL in style.css
+    (.hero-bg rule) with the actual Concord exterior photo.
+  ============================================================ -->
+  <section id="hero">
+
+    <!-- Background image (set via CSS for Ken Burns animation) -->
+    <div class="hero-bg" role="img" aria-label="Concord Apartments exterior view"></div>
+
+    <!-- Dark gradient overlay for text legibility -->
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <!-- Gold particle container — populated by JavaScript -->
+    <div class="hero-particles" id="particles" aria-hidden="true"></div>
+
+    <!-- Main content -->
+    <div class="hero-content">
+
+      <!-- Location badge -->
+      <div class="hero-badge">Nakasero Hill, Kampala, Uganda</div>
+
+      <!-- Main headline -->
+      <h1 class="hero-title">
+        Concord
+        <span class="line2">Apartments</span>
+      </h1>
+
+      <!-- Tagline -->
+      <p class="hero-sub">
+        Tailored to your highest standard. Marvelous 360&deg; views of the city,
+        world-class amenities, and refined living at the heart of Kampala&rsquo;s
+        most prestigious address.
+      </p>
+
+      <!-- CTA buttons -->
+      <div class="hero-ctas">
+        <a href="#properties" class="btn-gold">Explore Residences</a>
+        <a href="#contact"    class="btn-outline">Make an Enquiry</a>
+      </div>
+
+    </div><!-- /hero-content -->
+
+    <!-- Key stats — bottom right, animated on scroll -->
+    <div class="hero-stats" aria-label="Key statistics">
+
+      <div class="stat">
+        <div class="stat-num" data-count="530">0<sup>m&sup2;</sup></div>
+        <div class="stat-label">Largest Residence</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-num" data-count="360">0<sup>&deg;</sup></div>
+        <div class="stat-label">City Panorama</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-num" data-count="12">0<sup>+</sup></div>
+        <div class="stat-label">Amenities</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-num" data-count="5">0<sup>min</sup></div>
+        <div class="stat-label">To City Centre</div>
+      </div>
+
+    </div><!-- /hero-stats -->
+
+    <!-- Scroll down indicator -->
+    <div class="scroll-ind" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-ind-line"></div>
+    </div>
+
+  </section><!-- /hero -->
+
+
+  <!-- ============================================================
+    ABOUT SECTION
+  ============================================================ -->
+  <section id="about" class="section">
+    <div class="section-inner">
+      <div class="about-grid">
+
+        <!-- Left: text content -->
+        <div class="reveal">
+          <div class="eyebrow">About Concord</div>
+          <h2 class="section-h">
+            Where Luxury <em>Meets</em><br>the Heart of Kampala
+          </h2>
+          <div class="gold-rule" data-animate></div>
+
+          <div class="about-body">
+            <p>
+              Set on prestigious Nakasero Hill Road, Concord Apartments is a
+              distinguished architectural achievement offering commanding 360&deg;
+              views of Kampala. Designed for those who accept nothing less than
+              excellence, every detail reflects an uncompromising commitment to
+              refined living.
+            </p>
+            <p>
+              Surrounded by the finest hotels, shopping malls, restaurants, and
+              cultural landmarks &mdash; Sheraton, Hilton, Serena, Acacia Mall, Garden
+              City &mdash; with four road access routes keeping the entire city
+              effortlessly within reach.
+            </p>
+          </div>
+
+          <!-- 4 highlight pillars -->
+          <div class="about-pillars">
+
+            <div class="pillar">
+              <div class="pillar-icon">&#127961;</div>
+              <div class="pillar-title">360&deg; City Panorama</div>
+              <div class="pillar-desc">Unobstructed views of Kampala from every floor</div>
+            </div>
+
+            <div class="pillar">
+              <div class="pillar-icon">&#128205;</div>
+              <div class="pillar-title">Prime Address</div>
+              <div class="pillar-desc">Nakasero Hill &mdash; Kampala&rsquo;s most prestigious district</div>
+            </div>
+
+            <div class="pillar">
+              <div class="pillar-icon">&#128272;</div>
+              <div class="pillar-title">Complete Security</div>
+              <div class="pillar-desc">Electronic gates, 24/7 private security personnel</div>
+            </div>
+
+            <div class="pillar">
+              <div class="pillar-icon">&#10024;</div>
+              <div class="pillar-title">Superior Finish</div>
+              <div class="pillar-desc">Modular kitchens, stainless fittings, bespoke design</div>
+            </div>
+
+          </div><!-- /about-pillars -->
+        </div><!-- /left column -->
+
+        <!-- Right: image stack with gold accent block -->
+        <!-- NOTE: Replace src values with actual Concord building photos -->
+        <div class="about-img-stack reveal-right">
+          <img
+            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80"
+            alt="Concord Apartments building exterior"
+            class="about-img-main"
+          >
+          <img
+            src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=500&q=80"
+            alt="Concord Apartments luxury interior"
+            class="about-img-accent"
+          >
+          <div class="about-accolade">
+            <span class="accolade-num">4</span>
+            <span class="accolade-text">Unit Types<br>Available</span>
+          </div>
+        </div>
+
+      </div><!-- /about-grid -->
+    </div>
+  </section><!-- /about -->
+
+
+  <!-- ============================================================
+    PROPERTIES SECTION
+    Asymmetric mosaic card grid + full comparison table.
+  ============================================================ -->
+  <section id="properties" class="section">
+    <div class="section-inner">
+
+      <!-- Section header with CTA -->
+      <div class="props-header reveal">
+        <div>
+          <div class="eyebrow">Residences</div>
+          <h2 class="section-h">Choose Your <em>Residence</em></h2>
+        </div>
+        <a href="#contact" class="btn-outline">Request Full Brochure</a>
+      </div>
+
+      <!-- Mosaic photo grid -->
+      <!-- NOTE: Replace all src values with actual Concord apartment photos -->
+      <div class="props-mosaic reveal">
+
+        <!-- Featured card — spans 2 rows on desktop -->
+        <div class="prop-card feature">
+          <img
+            src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=900&q=80"
+            alt="Ultra Luxurious Penthouse — Concord Apartments"
+          >
+          <span class="prop-tag">For Sale &middot; Featured</span>
+          <div class="prop-overlay">
+            <div class="prop-price">$850,000</div>
+            <div class="prop-name">Ultra Luxurious Penthouse</div>
+            <div class="prop-specs">
+              <span><strong>4</strong> Beds</span>
+              <span><strong>6</strong> Baths</span>
+              <span><strong>530</strong> m&sup2;</span>
+              <span>+ Maid&rsquo;s Room</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Luxurious Penthouse -->
+        <div class="prop-card">
+          <img
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80"
+            alt="Luxurious Penthouse — Concord Apartments"
+          >
+          <span class="prop-tag">For Sale</span>
+          <div class="prop-overlay">
+            <div class="prop-price">$850,000</div>
+            <div class="prop-name">Luxurious Penthouse</div>
+            <div class="prop-specs">
+              <span><strong>4</strong> Beds</span>
+              <span><strong>6</strong> Baths</span>
+              <span><strong>450</strong> m&sup2;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Three Bedroom -->
+        <div class="prop-card">
+          <img
+            src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=700&q=80"
+            alt="Three Bedroom Apartment — Concord Apartments"
+          >
+          <span class="prop-tag">For Sale</span>
+          <div class="prop-overlay">
+            <div class="prop-price">$350,000</div>
+            <div class="prop-name">Three Bed + Maid&rsquo;s Room</div>
+            <div class="prop-specs">
+              <span><strong>3</strong> Beds</span>
+              <span><strong>5</strong> Baths</span>
+              <span><strong>260</strong> m&sup2;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Two Bedroom -->
+        <div class="prop-card">
+          <img
+            src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=700&q=80"
+            alt="Two Bedroom Apartment — Concord Apartments"
+          >
+          <span class="prop-tag">For Sale</span>
+          <div class="prop-overlay">
+            <div class="prop-price">$330,000</div>
+            <div class="prop-name">Two Bed + Maid&rsquo;s Room</div>
+            <div class="prop-specs">
+              <span><strong>2</strong> Beds</span>
+              <span><strong>4</strong> Baths</span>
+              <span><strong>200</strong> m&sup2;</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience / brand card -->
+        <div class="prop-card">
+          <img
+            src="https://images.unsplash.com/photo-1574359411659-15573a27fd0c?w=700&q=80"
+            alt="Nakasero Hill, Kampala view"
+          >
+          <div class="prop-overlay" style="background: linear-gradient(to top, rgba(10,9,6,0.85) 0%, rgba(10,9,6,0.5) 100%);">
+            <div style="text-align: center; width: 100%;">
+              <div style="font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-gold); margin-bottom: 0.5rem;">Experience</div>
+              <div style="font-family: var(--font-serif); font-size: 1.1rem; font-style: italic; color: var(--color-cream);">Nakasero Hill</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /props-mosaic -->
+
+      <!-- Full comparison table -->
+      <div class="props-table-wrap reveal delay-2">
+        <table class="props-table">
+          <thead>
+            <tr>
+              <th scope="col">Unit Type</th>
+              <th scope="col">Floor Size</th>
+              <th scope="col">Bedrooms</th>
+              <th scope="col">Bathrooms</th>
+              <th scope="col">Additional</th>
+              <th scope="col">Price (USD)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="color: var(--color-cream);">Two Bedroom</td>
+              <td>200 m&sup2;</td>
+              <td>2</td>
+              <td>4</td>
+              <td>Maid&rsquo;s Room</td>
+              <td class="price-cell">$330,000</td>
+            </tr>
+            <tr>
+              <td style="color: var(--color-cream);">Three Bedroom</td>
+              <td>260 m&sup2;</td>
+              <td>3</td>
+              <td>5</td>
+              <td>Maid&rsquo;s Room</td>
+              <td class="price-cell">$350,000</td>
+            </tr>
+            <tr>
+              <td style="color: var(--color-cream);">Luxurious Penthouse</td>
+              <td>450 m&sup2;</td>
+              <td>4</td>
+              <td>6</td>
+              <td>Maid&rsquo;s Room</td>
+              <td class="price-cell">$850,000</td>
+            </tr>
+            <tr>
+              <td style="color: var(--color-cream);">Ultra Luxurious Penthouse</td>
+              <td>530 m&sup2;</td>
+              <td>4</td>
+              <td>6</td>
+              <td>Maid&rsquo;s Room</td>
+              <td class="price-cell">$850,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section><!-- /properties -->
+
+
+  <!-- ============================================================
+    AMENITIES SECTION
+    Sticky left column with copy + tags. Scrollable right grid.
+  ============================================================ -->
+  <section id="amenities" class="section">
+    <div class="section-inner">
+
+      <div class="reveal">
+        <div class="eyebrow">Building Features</div>
+        <h2 class="section-h">World-Class <em>Amenities</em></h2>
+      </div>
+
+      <div class="amenities-layout">
+
+        <!-- Sticky left: copy + interior spec tags -->
+        <div class="amenities-copy reveal-left">
+          <p class="amenities-body">
+            Every Concord resident enjoys an exceptional suite of amenities &mdash;
+            designed to ensure your building feels as impressive as your home within it.
+          </p>
+          <div class="gold-rule" data-animate></div>
+
+          <div style="margin-top: 2rem;">
+            <div style="font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--color-gold); margin-bottom: 1rem;">
+              Interior Specifications
+            </div>
+            <div class="interior-tag-list">
+              <span class="tag">Modular Kitchen</span>
+              <span class="tag">Built-in Oven</span>
+              <span class="tag">Fiber Optic</span>
+              <span class="tag">Cable TV</span>
+              <span class="tag">Air Conditioning</span>
+              <span class="tag">Railing Balcony</span>
+              <span class="tag">Generator Backup</span>
+              <span class="tag">Prepaid Electric</span>
+              <span class="tag">Water Recycling</span>
+              <span class="tag">Stainless Fittings</span>
+              <span class="tag">DTH Satellite</span>
+              <span class="tag">Chimney Hood</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: amenity cards grid -->
+        <div class="amenities-grid reveal">
+
+          <div class="amenity">
+            <div class="amenity-icon">&#127946;</div>
+            <div class="amenity-name">Swimming Pool</div>
+            <div class="amenity-desc">Separate pools for children and adults</div>
+          </div>
+
+          <div class="amenity">
+            <div class="amenity-icon">&#127947;</div>
+            <div class="amenity-name">Ultra-Modern Gymnasium</div>
+            <div class="amenity-desc">Fully equipped with entertainment zone</div>
+          </div>
+
+          <div class="amenity">
+            <div class="amenity-icon">&#128737;</div>
+            <div class="amenity-name">24/7 Private Security</div>
+            <div class="amenity-desc">Electronic gates with controlled access</div>
+          </div>
+
+          <div class="amenity">
+            <div class="amenity-icon">&#128663;</div>
+            <div class="amenity-name">Parking</div>
+            <div class="amenity-desc">Ample open and basement car parking</div>
+          </div>
+
+          <div class="amenity">
+            <div class="amenity-icon">&#129494;</div>
+            <div class="amenity-name">Health Club &amp; Spa</div>
+            <div class="amenity-desc">Steam rooms for men and women with changing facilities</div>
+          </div>
+
+          <div class="amenity">
+            <div class="amenity-icon">&#9749;</div>
+            <div class="amenity-name">Modern Caf&eacute;</div>
+            <div class="amenity-desc">Caf&eacute; and minimarket within the building</div>
+          </div>
+
+          <div class="amenity">
+            <div class="amenity-icon">&#127936;</div>
+            <div class="amenity-name">Rooftop Basketball Court</div>
+            <div class="amenity-desc">Full court plus adults&rsquo; recreation area</div>
+          </div>
+
+          <div class="amenity">
+            <div class="amenity-icon">&#127904;</div>
+            <div class="amenity-name">Kids&rsquo; Play Areas</div>
+            <div class="amenity-desc">Indoor playground and rooftop play area</div>
+          </div>
+
+          <div class="amenity">
+            <div class="amenity-icon">&#127807;</div>
+            <div class="amenity-name">Manicured Landscapes</div>
+            <div class="amenity-desc">Modern landscaping throughout the compound</div>
+          </div>
+
+          <div class="amenity">
+            <div class="amenity-icon">&#128700;</div>
+            <div class="amenity-name">Spacious Lift Lobbies</div>
+            <div class="amenity-desc">Elegantly designed on all floors</div>
+          </div>
+
+          <div class="amenity">
+            <div class="amenity-icon">&#128225;</div>
+            <div class="amenity-name">Smart Connectivity</div>
+            <div class="amenity-desc">Fiber optic broadband and DTH satellite on all units</div>
+          </div>
+
+          <div class="amenity">
+            <div class="amenity-icon">&#128167;</div>
+            <div class="amenity-name">Water Systems</div>
+            <div class="amenity-desc">Recycling plant and individual tanker per flat</div>
+          </div>
+
+        </div><!-- /amenities-grid -->
+      </div><!-- /amenities-layout -->
+    </div>
+  </section><!-- /amenities -->
+
+
+  <!-- ============================================================
+    GALLERY SECTION
+    Asymmetric CSS grid mosaic — no slider, no plugin needed.
+    NOTE: Replace all src values with actual Concord photos.
+  ============================================================ -->
+  <section id="gallery" class="section" style="padding-bottom: 0;">
+    <div class="section-inner">
+      <div class="gallery-header reveal">
+        <div class="eyebrow">Photo Gallery</div>
+        <h2 class="section-h">Experience <em>Concord</em></h2>
+      </div>
+    </div>
+
+    <!-- Full-bleed mosaic — sits outside .section-inner intentionally -->
+    <div class="gallery-mosaic reveal">
+
+      <div class="g-item g1">
+        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80" alt="Concord Apartments exterior">
+        <div class="g-hover"><div class="g-hover-icon">+</div></div>
+      </div>
+
+      <div class="g-item g2">
+        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=700&q=80" alt="Luxury living room">
+        <div class="g-hover"><div class="g-hover-icon">+</div></div>
+      </div>
+
+      <div class="g-item g3">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" alt="Modular kitchen">
+        <div class="g-hover"><div class="g-hover-icon">+</div></div>
+      </div>
+
+      <div class="g-item g4">
+        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=700&q=80" alt="Swimming pool">
+        <div class="g-hover"><div class="g-hover-icon">+</div></div>
+      </div>
+
+      <div class="g-item g5">
+        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=700&q=80" alt="Master bedroom">
+        <div class="g-hover"><div class="g-hover-icon">+</div></div>
+      </div>
+
+      <div class="g-item g6">
+        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=600&q=80" alt="Bathroom">
+        <div class="g-hover"><div class="g-hover-icon">+</div></div>
+      </div>
+
+    </div><!-- /gallery-mosaic -->
+  </section><!-- /gallery -->
+
+
+  <!-- ============================================================
+    QUOTE BANNER
+    Full-bleed gold section to reinforce the brand tagline.
+  ============================================================ -->
+  <div id="quote-banner">
+    <blockquote class="quote-text">
+      &ldquo;Invest in a better home. Invest in a better future. Invest in a better life.&rdquo;
+      <span class="quote-attr">&mdash; Concord Apartments, Kampala</span>
+    </blockquote>
+  </div>
+
+
+  <!-- ============================================================
+    LOCATION SECTION
+    50/50 split: location details left, live Google Map right.
+  ============================================================ -->
+  <section id="location" style="padding: 0;">
+    <div class="location-split">
+
+      <!-- Left: location copy -->
+      <div class="location-content reveal-left">
+        <div class="eyebrow">Location</div>
+        <h2 class="section-h">Nakasero Hill, <em>Kampala</em></h2>
+
+        <p class="location-body">
+          Live at the epicentre of Uganda&rsquo;s capital. Concord Apartments sits on
+          Nakasero Hill Road &mdash; the city&rsquo;s most prestigious address &mdash; with
+          unmatched connectivity in every direction.
+        </p>
+
+        <div class="location-points">
+          <div class="lp">
+            <div class="lp-dot"></div>
+            <div class="lp-text"><strong>5-minute walk</strong> to the city centre</div>
+          </div>
+          <div class="lp">
+            <div class="lp-dot"></div>
+            <div class="lp-text"><strong>Acacia Mall, Garden City &amp; Carrefour</strong> in 5&ndash;10 minutes</div>
+          </div>
+          <div class="lp">
+            <div class="lp-dot"></div>
+            <div class="lp-text"><strong>Sheraton, Hilton, Serena &amp; Onomo Hotels</strong> within walking distance</div>
+          </div>
+          <div class="lp">
+            <div class="lp-dot"></div>
+            <div class="lp-text">
+              <strong>4 road access routes:</strong> Nakasero Road, Farewell Roundabout,
+              Wandegeya Junction, Mulago Roundabout
+            </div>
+          </div>
+          <div class="lp">
+            <div class="lp-dot"></div>
+            <div class="lp-text"><strong>Nakasero fresh market</strong> and fine dining nearby</div>
+          </div>
+        </div>
+
+        <a href="https://maps.google.com/?q=Nakasero,Kampala,Uganda"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn-gold"
+           style="display: inline-block; margin-top: 2rem;">
+          Open in Google Maps &rarr;
+        </a>
+      </div>
+
+      <!-- Right: embedded Google Map -->
+      <div class="location-map-wrap">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d997.4389876129236!2d32.582919!3d0.320368!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbb780367a4d3%3A0xba33d80d08dfacd8!2sNakasero%2C%20Kampala%2C%20Uganda!5e0!3m2!1sen!2sus!4v1658914248689!5m2!1sen!2sus"
+          title="Concord Apartments location on Google Maps"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+
+        <!-- Floating address card over the map -->
+        <div class="map-overlay">
+          <div class="map-overlay-title">Concord Apartments</div>
+          <div class="map-overlay-addr">Nakasero Hill Road, Kampala, Uganda</div>
+        </div>
+      </div>
+
+    </div><!-- /location-split -->
+  </section><!-- /location -->
+
+
+  <!-- ============================================================
+    CONTACT SECTION
+  ============================================================ -->
+  <section id="contact" class="section">
+    <div class="section-inner">
+      <div class="contact-grid">
+
+        <!-- Left: contact details -->
+        <div class="reveal-left">
+          <div class="eyebrow">Get in Touch</div>
+          <h2 class="section-h">Make an <em>Enquiry</em></h2>
+
+          <p class="contact-intro">
+            We&rsquo;d love to help you find your perfect residence. Our team is available
+            to arrange viewings, answer questions, and guide you through every step.
+          </p>
+
+          <div class="c-item">
+            <div class="c-label">Address</div>
+            <div class="c-value">Nakasero Hill Road, Kampala, Uganda</div>
+          </div>
+
+          <div class="c-item">
+            <div class="c-label">Phone</div>
+            <div class="c-value">
+              <a href="tel:+256760120362">+256 760 120 362</a>
+            </div>
+          </div>
+
+          <div class="c-item">
+            <div class="c-label">Email</div>
+            <div class="c-value">
+              <a href="mailto:concordapartmentscontact@gmail.com">
+                concordapartmentscontact@gmail.com
+              </a>
+            </div>
+          </div>
+
+          <div class="c-item">
+            <div class="c-label">Follow Us</div>
+            <!-- Social links — all confirmed URLs from Juan's messages -->
+            <div class="socials">
+
+              <!-- Facebook -->
+              <a href="https://www.facebook.com/share/183f1A2bcu/?mibextid=wwXIfr"
+                 class="social-link"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Concord Apartments on Facebook"
+                 title="Facebook">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </a>
+
+              <!-- Instagram -->
+              <a href="https://www.instagram.com/concord_apartments?igsh=MWpkcWV0Mndia3Nxdg=="
+                 class="social-link"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Concord Apartments on Instagram"
+                 title="Instagram">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+
+              <!-- TikTok -->
+              <a href="https://www.tiktok.com/@concordapartments?_r=1&_t=ZS-95mSvF8HrrI"
+                 class="social-link"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Concord Apartments on TikTok"
+                 title="TikTok">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                </svg>
+              </a>
+
+              <!-- WhatsApp -->
+              <a href="https://wa.me/256760120362"
+                 class="social-link"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Contact Concord Apartments on WhatsApp"
+                 title="WhatsApp">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.115 1.525 5.844L.057 23.882a.5.5 0 0 0 .61.633l6.195-1.624A11.937 11.937 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.887a9.897 9.897 0 0 1-5.03-1.372l-.36-.214-3.724.977.995-3.634-.235-.374A9.86 9.86 0 0 1 2.114 12C2.114 6.544 6.544 2.114 12 2.114S21.886 6.544 21.886 12 17.456 21.887 12 21.887z"/>
+                </svg>
+              </a>
+
+              <!-- YouTube — update href when channel is created -->
+              <a href="#"
+                 class="social-link"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Concord Apartments on YouTube"
+                 title="YouTube">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+              </a>
+
+            </div><!-- /socials -->
+          </div><!-- /c-item -->
+        </div><!-- /left contact -->
+
+        <!-- Right: enquiry form -->
+        <div class="reveal">
+          <div class="contact-form">
+
+            <div class="form-row">
+              <div class="form-field">
+                <input type="text" id="fn" name="first_name" placeholder=" " autocomplete="given-name">
+                <label for="fn">First Name</label>
+              </div>
+              <div class="form-field">
+                <input type="text" id="ln" name="last_name" placeholder=" " autocomplete="family-name">
+                <label for="ln">Last Name</label>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <input type="email" id="em" name="email" placeholder=" " autocomplete="email">
+              <label for="em">Email Address</label>
+            </div>
+
+            <div class="form-field">
+              <input type="tel" id="ph" name="phone" placeholder=" " autocomplete="tel">
+              <label for="ph">Phone Number</label>
+            </div>
+
+            <div class="form-field">
+              <select id="un" name="unit_interest">
+                <option value="" disabled selected></option>
+                <option value="two-bed">Two Bedroom + Maid&rsquo;s Room &mdash; $330,000</option>
+                <option value="three-bed">Three Bedroom + Maid&rsquo;s Room &mdash; $350,000</option>
+                <option value="penthouse">Luxurious Penthouse &mdash; $850,000</option>
+                <option value="ultra-penthouse">Ultra Luxurious Penthouse &mdash; $850,000</option>
+                <option value="general">General Enquiry</option>
+              </select>
+              <label for="un">Unit of Interest</label>
+            </div>
+
+            <div class="form-field">
+              <textarea id="ms" name="message" placeholder=" "></textarea>
+              <label for="ms">Your Message</label>
+            </div>
+
+            <!-- onclick calls submitForm() in script.js -->
+            <button type="button" class="form-submit" onclick="submitForm(this)">
+              Send Enquiry
+            </button>
+
+          </div><!-- /contact-form -->
+        </div><!-- /right contact -->
+
+      </div><!-- /contact-grid -->
+    </div>
+  </section><!-- /contact -->
+
+
+  <!-- ============================================================
+    FOOTER
+  ============================================================ -->
+  <footer>
+    <div class="footer-inner">
+
+      <span class="footer-logo-text">Concord Apartments</span>
+
+      <p class="footer-copy">
+        &copy; 2025 Concord Apartments, Nakasero Hill, Kampala, Uganda. All Rights Reserved.
+      </p>
+
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="#properties">Properties</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+    MAIN JAVASCRIPT — loaded at the end for performance
+  ============================================================ -->
+  <script src="script.js"></script>
+
+</body>
+</html>
