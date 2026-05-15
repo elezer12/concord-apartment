@@ -162,6 +162,21 @@ button {
   color: var(--color-cream);
 }
 
+/* Logo image — sized for the navbar */
+.nav-logo-img {
+  height: 48px;           /* fits neatly in the nav bar */
+  width: auto;            /* preserve aspect ratio */
+  object-fit: contain;
+  display: block;
+  /* The logo has a dark grey background — add slight rounding */
+  border-radius: 4px;
+  transition: opacity 0.2s ease;
+}
+.nav-logo-img:hover { opacity: 0.85; }
+
+/* On scroll, navbar shrinks — shrink logo too */
+#nav.scrolled .nav-logo-img { height: 40px; }
+
 /* Desktop navigation links */
 .nav-links {
   display: flex;
@@ -311,7 +326,7 @@ button {
 .hero-bg {
   position: absolute;
   inset: -5%;
-  background: url('images/hero-bg.jpg') center / cover no-repeat;
+  background: url('images/penthouse-living.jpeg') center / cover no-repeat;
   animation: heroZoom 25s ease-in-out infinite alternate;
 }
 @keyframes heroZoom {
